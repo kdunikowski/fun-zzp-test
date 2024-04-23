@@ -58,7 +58,7 @@ jobs:
         popd
 
     - name: 'Run Azure Functions Action'
-      if: github.event != 'pull_request'
+      if: ${{ github.event_name == 'push' }}
       uses: Azure/functions-action@v1
       id: fa
       with:
